@@ -9,10 +9,8 @@
     "dev:01_metalic_cube_rotaion": "vite --open /samples/01_metallic_cube_rotation/",
     "dev:02_lorenz_attractor": "vite --open /samples/02_lorenz_attractor/",
     "build": "vite build",
-    "preview": "vite preview --host",
-    "preview:00_cube_rotation": "vite preview --host --open /samples/00_cube_rotation/",
-    "preview:01_metalic_cube_rotaion": "vite preview --host --open /samples/01_metallic_cube_rotation/",
-    "preview:02_lorenz_attractor": "vite preview --host --open /samples/02_lorenz_attractor/"
+    "preview": "http-server dist --host 0.0.0.0 --port 4173"
+    
   },
   "repository": {
     "type": "git",
@@ -25,6 +23,7 @@
     "three": "^0.182.0"
   },
   "devDependencies": {
-    "vite": "^7.2.7"
+    "vite": "^7.2.7",
+    "http-server": "^14.1.1"
   }
 }
