@@ -47,10 +47,12 @@ const subSteps = 5; // Integration steps per frame for smoother curve
 const maxPoints = 8000;
 const positions = new Float32Array(maxPoints * 3);
 const colors = new Float32Array(maxPoints * 3);
+const indices = new Uint32Array(maxPoints - 1);
 
 const geometry = new THREE.BufferGeometry();
 geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
 geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+geometry.setIndex(new THREE.BufferAttribute(indices, 1));
 geometry.setDrawRange(0, 0);
 
 const lineMaterial = new THREE.LineBasicMaterial({
@@ -110,6 +112,29 @@ function pushPoint() {
   drawnPoints = Math.min(drawnPoints + 1, maxPoints);
 }
 
+function updateIndices() {
+  if (drawnPoints < 2) {
+    geometry.setDrawRange(0, 0);
+    return;
+  }
+
+  if (drawnPoints < maxPoints) {
+    // Buffer not full yet: connect points in order 0, 1, 2, ...
+    for (let i = 0; i < drawnPoints - 1; i++) {
+      indices[i] = i;
+    }
+    geometry.setDrawRange(0, drawnPoints - 1);
+  } else {
+    // Buffer is full: connect in circular order starting from oldest point
+    for (let i = 0; i < maxPoints - 1; i++) {
+      indices[i] = (writeIndex + i) % maxPoints;
+    }
+    geometry.setDrawRange(0, maxPoints - 1);
+  }
+  
+  geometry.index.needsUpdate = true;
+}
+
 // Animation
 const clock = new THREE.Clock();
 
@@ -122,9 +147,9 @@ function animate() {
     pushPoint();
   }
 
+  updateIndices();
   geometry.attributes.position.needsUpdate = true;
   geometry.attributes.color.needsUpdate = true;
-  geometry.setDrawRange(0, drawnPoints);
 
   // Update tracer position to current point
   tracer.position.set(x * scale, y * scale, z * scale);
