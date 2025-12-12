@@ -1,0 +1,24 @@
+### Node / npm
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+### Vite / Build Output
+build/
+dist/
+.vite/
+
+### Environment Variables
+.env
+.env.local
+.env.*.local
+
+### OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
+*.swo
+

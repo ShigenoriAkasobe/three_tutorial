@@ -1,0 +1,26 @@
+{
+  "name": "three_tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "dev:00_cube_rotation": "vite --open /samples/00_cube_rotation/",
+    "build": "vite build",
+    "preview": "vite preview",
+    "preview:00_cube_rotation": "vite preview --open /samples/00_cube_rotation/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-personal-business:ShigenoriAkasobe/three_tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.182.0"
+  },
+  "devDependencies": {
+    "vite": "^7.2.7"
+  }
+}
