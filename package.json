@@ -6,9 +6,11 @@
   "scripts": {
     "dev": "vite",
     "dev:00_cube_rotation": "vite --open /samples/00_cube_rotation/",
+    "dev:01_metalic_cube_rotaion": "vite --open /samples/01_metallic_cube_rotation/",
     "build": "vite build",
     "preview": "vite preview",
-    "preview:00_cube_rotation": "vite preview --open /samples/00_cube_rotation/"
+    "preview:00_cube_rotation": "vite preview --open /samples/00_cube_rotation/",
+    "preview:01_metalic_cube_rotaion": "vite preview --open /samples/01_metallic_cube_rotation/"
   },
   "repository": {
     "type": "git",
