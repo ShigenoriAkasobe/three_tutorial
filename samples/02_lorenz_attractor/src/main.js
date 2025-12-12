@@ -40,11 +40,11 @@ let x = 0.1;
 let y = 0;
 let z = 0;
 
-const dt = 0.01;
-const subSteps = 5; // Integration steps per frame for smoother curve
+const dt = 0.002;
+const subSteps = 50; // Integration steps per frame for smoother curve
 
 // Trail geometry (line with vertex colors)
-const maxPoints = 8000;
+const maxPoints = 50000;
 const positions = new Float32Array(maxPoints * 3);
 const colors = new Float32Array(maxPoints * 3);
 const indices = new Uint32Array(maxPoints - 1);
@@ -155,7 +155,7 @@ function animate() {
   tracer.position.set(x * scale, y * scale, z * scale);
 
   // Slowly rotate the whole attractor for better visibility
-  attractorGroup.rotation.y = elapsedTime * 0.1;
+  attractorGroup.rotation.y = elapsedTime * 0.2;
 
   camera.lookAt(0, 0, 0);
   renderer.render(scene, camera);
