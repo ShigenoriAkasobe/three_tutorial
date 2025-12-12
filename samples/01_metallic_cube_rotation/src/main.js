@@ -30,7 +30,7 @@ canvasContainer.appendChild(renderer.domElement);
 // Cube
 const geometry = new THREE.BoxGeometry(1, 1, 1);
 const material = new THREE.MeshStandardMaterial({
-  color: 0xb0bec5,
+  color: 0x4fc3f7,
   metalness: 0.9,
   roughness: 0.2,
 });
